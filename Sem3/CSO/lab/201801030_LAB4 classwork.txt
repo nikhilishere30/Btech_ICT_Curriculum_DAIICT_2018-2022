@@ -1,0 +1,108 @@
+LAB4
+
+q2)
+
+(pass by register)
+SRAM_BASE EQU 0x4000	
+	area lab42,code,readonly
+	entry
+	ldr r0,=4
+	ldr r1,=6
+	bl square
+	b stop
+	
+square
+	mla r3,r1,r1,r3
+	mla r2,r0,r0,r3
+	bx lr
+stop	
+	end
+;SRAM_BASE EQU 0x4000
+
+(pass by reference)
+
+location equ 0X4000	
+	area lab42,code,readonly
+	entry
+	ldr r0,=data
+	ldr r3,=location
+	ldr sp,=0x5000
+	ldmia r0,{r1-r2}
+	stmia r3,{r1-r2}
+	bl square
+	b stop
+square
+	stmia sp,{r1-r2,lr}
+	ldmia r3,{r1-r2}
+	mla r4,r1,r1,r4
+	mla r4,r2,r2,r4
+	ldmia sp,{r1-r2,pc}
+	
+stop	
+data dcd 3,4	
+	end	
+
+q3)
+
+	area lab43,code,readonly
+	entry
+	ldr r0,=data
+	ldr r1,=0x0
+	bl count
+	mov r2,r1,lsr #1
+	bl reverse
+reverse
+	cmp r2,#0
+	beq stop
+	sub r1,#1
+	sub r2,#1
+	ldrb r3,[r0]
+	ldrb r4,[r0,r1]
+	strb r4,[r0]
+	strb r3,[r0,r1]
+	add r0,#1
+	sub r1,#1
+	b reverse
+count
+	ldrb r2,[r0],#1
+	cmp r2,#0xd
+	addne r1,#1
+	bne count
+	bx lr
+	
+data dcb "ABCD\r"	
+stop
+	end
+
+q1)
+
+location1 equ 0x4000
+location2 equ 0x5000
+	area lab41,code,readonly
+	entry
+	ldr r0,=data1
+	ldr r1,=data2
+	ldr sp,=location1
+	ldr r8,=location2
+	ldr r2,=4       ;dimensions of the vector
+	stmia sp,{r0-r1}
+	bl calculate
+	
+calculate
+	stmia r8,{r0-r1,lr}
+	ldmia sp,{r0-r1}
+	bl loop
+loop
+	ldr r4,[r0],#4
+	ldr r5,[r1],#4
+	mul r6,r4,r5
+	adds r7,r6,r7
+	subs r2,#1
+	beq stop
+	b loop
+
+data1 dcd 2,3,4,5
+data2 dcd 4,5,6,7
+
+stop
+	end

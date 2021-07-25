@@ -1,0 +1,194 @@
+select service_provider_name from service_provider where administrator_id = '6591280989'
+select account_number,credit_card_status from credit_card where expiry_date='2022-07-15'
+select count(distinct Administrator_name) from Administrator
+select count(customer_ID) from customer
+select max(balance) from Account_details_3
+select account_category,account_number,customer_id from account_type order by customer_id asc
+
+SELECT Customer_Name FROM Customer WHERE Customer_ID IN 
+(SELECT Customer_ID FROM Service_Provider WHERE Administrator_ID='6591280989')
+
+SELECT COUNT(Customer_ID) FROM Account_Type WHERE Account_Category='Current'
+
+SELECT Account_Number,Balance FROM Account_details_3 
+WHERE Account_Number IN (SELECT Account_Number FROM Account_Type WHERE Auditor_ID='24253')
+
+Select account_details_1.account_number, account_details_1.Credit_Card_number, 
+account_details_2.Debit_Card_number from account_details_1 join account_details_2 on 
+account_details_1.account_number=account_details_2.account_number
+
+SELECT * FROM Customer TABLESAMPLE BERNOULLI(10);
+
+select account_details_1.account_number,account_details_1.Credit_Card_number,
+account_details_3.Balance from account_details_1 join account_details_3 
+on account_details_1.account_number=account_details_3.account_number
+
+SELECT account_number FROM account_details_3 where Balance between '74469' AND '818183'
+
+Select Administrator_Name from administrator where Administrator_Name like 'A%'
+
+select customer_id,customer_name from customer where customer_id like '1%' and auditor_ID='25954'
+
+SELECT customer_id FROM account_type EXCEPT SELECT account_number FROM account_details_3 
+WHERE balance between '1200' and '9000'
+
+select account_details_2.account_number, account_details_2.Debit_Card_number, account_details_3.Balance,
+account_details_3.Recurring_Status from account_details_2 join account_details_3 on 
+account_details_2.account_number=account_details_3.account_number and Recurring_Status = True
+
+select account_number from recurring_payment where account_number 
+like '5%' and recurring_amount > cast('40000' as integer) 
+and recurring_amount < cast('80000' as integer)
+
+
+Create view audit as select count(customer_id),auditor_id 
+from customer group by auditor_id
+select * from audit where count>3 order by count desc limit 3
+
+select account_number,balance from account_details_3 where balance=(select max(balance) 
+from account_details_3 where balance < (select max(balance) from account_details_3))
+
+select customer_id,account_number,administrator_id,bank_name from account_type where auditor_id='81224'
+
+update customer set customer_name='Lucy' where customer_id='51516';
+
+select account_type.account_category, 
+max(account_details_3.balance) from account_details_3 join account_type on 
+account_details_3.account_number=account_type.account_number group by account_type.account_category
+
+set statement_timeout=1000;
+select pg_sleep(2000);
+
+Create view admin as select 
+count(customer_id),administrator_id from customer join administrator on 
+customer.auditor_id=administrator.auditor_id group by administrator_id
+select * from admin where count>2
+
+Select auditor.auditor_id,auditor_name,count(customer_id) from customer join auditor 
+on customer.auditor_id=auditor.auditor_id group by auditor.auditor_id
+
+select service_provider_name, service_provider_id,administrator_id from 
+service_provider where service_provider_id in (select 
+max(service_provider.service_provider_id) from service_provider group by auditor_id)
+
+select customer_id,service_provider_id from service_provider where customer_id in 
+(select max(customer_id) from service_provider group by service_provider_id)
+
+
+select administrator_id from admin where count=(select max(count) from admin)
+
+select * from service_provider where customer_id in 
+(select max(customer_id) from service_provider group by auditor_id)
+
+create view detail as select customer.customer_name,
+customer.customer_id,account_type.account_number,
+account_type.account_category,account_type.bank_name from customer join 
+account_type on customer.customer_id=account_type.customer_id
+select * from detail
+
+Select account_details_1.account_number,  account_details_1.Credit_Card_number, 
+account_details_2.Debit_Card_number, account_details_3.Balance, 
+account_details_3.Recurring_Status from account_details_1 join account_details_3 on 
+account_details_1.account_number=account_details_3.account_number 
+join account_details_2 on account_details_1.account_number=account_details_2.account_number  
+
+
+SELECT customer.customer_name,customer.customer_id FROM customer LEFT JOIN 
+auditor ON customer.auditor_id = auditor.auditor_id;  
+
+SELECT administrator.administrator_name,administrator.administrator_id FROM administrator
+ RIGHT JOIN auditor ON administrator.auditor_id = auditor.auditor_id;
+
+create or replace function "details"()
+returns table(b character varying(250))
+language 'plpgsql'
+as $$
+declare
+	i RECORD;
+begin	
+	for i in (
+		select account_details_2.account_number from 
+		account_details_2 join account_details_3 on account_details_2.account_number=account_details_3.account_number
+		and Recurring_Status = True order by account_details_3.Balance desc limit 5)
+		loop b:=(i.account_number);
+		return next;
+	end loop;
+end;
+$$
+select "details"();
+
+select account_number,Maximum_Limit from credit_card where Maximum_Limit=
+(select max(Maximum_Limit) from credit_card where Maximum_Limit < (select max(Maximum_Limit) from credit_card))
+
+create or replace function "details1"()
+returns table(b character varying(250),number character varying(250),number1 character varying(250),number3 character varying(250))
+language 'plpgsql'
+as $$
+declare
+	i RECORD;
+begin	
+	for i in (select customer_id,account_number,administrator_id,bank_name from account_type where auditor_id='81224')
+		loop b:=(i.customer_id);number:=(i.account_number);number1:=(i.administrator_id);number3:=(i.bank_name);
+		return next;
+	end loop;
+end;
+$$
+select "details1"();
+
+
+
+create or replace function "details3"()
+returns table(b character varying(250),number character varying(250))
+language 'plpgsql'
+as $$
+declare
+	i RECORD;
+begin	
+	for i in (select account_number,balance from account_details_3 where balance=(select max(balance) from account_details_3 where balance < (select max(balance) from account_details_3)))
+
+		loop b:=(i.account_number);number:=(i.balance);
+		return next;
+	end loop;
+end;
+$$
+select "details3"();
+
+
+create or replace function func_1()
+returns trigger
+language 'plpgsql'
+as $$
+begin
+if (new.bank_name is NULL)
+then UPDATE administrator SET bank_name = 'Gringotts' WHERE administrator_id = new.administrator_id;
+raise notice 'Updated to default bank!';
+end if;
+return new;
+end
+$$;
+create trigger "def_bank"
+after insert on administrator
+for each row execute procedure func_1();
+INSERT INTO administrator(Audit_Details,Auditor_ID,Administrator_ID,Administrator_Name)
+VALUES (18,52934,9240093889,'Arka');
+
+
+
+create or replace function func_3()
+returns trigger
+language 'plpgsql'
+as $$
+begin
+if(new.balance < 100)
+then raise notice 'Balance must be in 3 digits';
+return old;
+end if;
+return new;
+end
+$$;
+
+create trigger "bal"
+before insert on account_details_3
+for each row execute procedure func_3();
+INSERT INTO account_details_3(Account_Number,Balance,Recurring_Status)
+VALUES ('5.43999E+15', 74, false);

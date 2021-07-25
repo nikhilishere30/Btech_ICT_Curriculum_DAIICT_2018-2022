@@ -1,0 +1,91 @@
+[1006/001908.313:ERROR:crash_report_database_win.cc(430)] unexpected header
+[1007/154943.487:ERROR:crash_report_database_win.cc(430)] unexpected header
+[1009/205335.445:ERROR:settings.cc(430)] Settings version is not 5
+[1009/205335.449:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/205343.556:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/205347.427:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/205352.205:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/205355.805:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/205400.994:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/210335.453:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/210335.456:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NIKHIL MEHTA\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\977c915b-8358-49dd-aae6-491f5d2988cf: The system cannot find the path specified. (0x3)
+[1009/210335.458:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NIKHIL MEHTA\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\ae051be8-3f94-4252-b543-c1876092922f: The system cannot find the path specified. (0x3)
+[1009/210335.462:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NIKHIL MEHTA\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\b530fe93-daf0-4909-bd5b-aaf0a0af339d: The system cannot find the path specified. (0x3)
+[1009/210335.463:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NIKHIL MEHTA\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\bc5d07f0-ddeb-48dd-b438-f6fc378cdb75: The system cannot find the path specified. (0x3)
+[1009/210335.463:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1009/210335.464:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/210335.464:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/210835.449:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/212335.451:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/213835.451:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/215335.452:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/220835.455:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/222335.455:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/223716.799:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/223835.457:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/225335.458:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/230835.458:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/232335.459:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/233835.459:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1009/235335.459:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1010/000835.460:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1010/002335.460:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1010/003835.461:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1010/005335.461:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1010/010835.462:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1010/012335.462:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1010/013835.463:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/124546.095:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/124835.504:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/125546.094:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/125546.094:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1011/125546.095:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/125546.095:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/130046.097:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/131546.098:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/132914.515:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/133046.098:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/134546.098:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/140046.100:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/141546.100:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/143046.100:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/143630.017:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/144546.101:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/150046.102:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/151546.103:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/153046.104:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/154546.104:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/160046.104:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/161546.104:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/163046.105:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/164546.106:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/165112.336:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/170046.107:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/171546.108:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/173046.108:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/174549.832:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/180049.833:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/181549.834:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/183049.834:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/184549.835:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/190049.836:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/191549.836:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/193049.838:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/194549.838:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/200049.839:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/203735.955:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/205235.956:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/210735.957:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/212235.959:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/213735.960:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/215235.961:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/220735.962:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/222235.963:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/223735.965:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/225235.965:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/230126.158:ERROR:crash_report_database_win.cc(459)] unexpected header
+[1011/230126.160:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NIKHIL MEHTA\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\4bd7ee34-2a99-4710-a898-dc7ba1303077: The system cannot find the path specified. (0x3)
+[1012/122138.046:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1018/231137.928:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1019/105205.005:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1019/111106.050:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

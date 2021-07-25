@@ -1,0 +1,44 @@
+q4)
+
+	area lab34,code,readonly
+	entry
+	ldr r0,=data
+	ldr r1,=0x4000
+	ldmia r0,{r2-r11}
+	stmia r1,{r2-r11}
+	ldr r1,=0x4000
+	ldr sp,=0x8000
+	ldmia r1,{r2-r11}
+	stmia sp!,{r2-r11}
+	
+data dcd 1,2,3,4,5,6,7,8,9,10
+	end
+
+q5)
+
+	area lab35,code,readonly
+	entry
+	ldr r0,=data
+	ldr sp,=0x4000
+	ldmia r0,{r1-r8}
+	stmia sp!,{r1-r8}
+	sub sp,#4
+	ldr r11,=8
+	
+return
+	ldr r9,[sp]
+	and r12,r9,#1
+	cmp r12,#0
+	beq even
+els
+	sub sp,#4
+	subs r11,#1
+	bne return
+	b stop
+even
+	add r10,#1
+	b els
+	
+data dcd 2,3,4,7,37,62,9,43	
+stop
+	end

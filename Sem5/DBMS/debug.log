@@ -1,0 +1,5 @@
+[0928/003906.642:ERROR:crash_report_database_win.cc(430)] unexpected header
+[0928/005301.715:ERROR:crash_report_database_win.cc(430)] unexpected header
+[0930/011154.327:ERROR:crash_report_database_win.cc(430)] unexpected header
+[1017/104910.584:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1018/160901.861:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

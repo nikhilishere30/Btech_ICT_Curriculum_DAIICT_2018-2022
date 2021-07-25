@@ -1,0 +1,133 @@
+Name: Yash Ghaghada
+Student Id: 201801042
+
+
+Command :uname -sr
+Output  :Linux 5.0.0-37-generic
+( -s, --kernel-name
+              print the kernel name)
+(-r, --kernel-release
+              print the kernel release)
+
+
+Command :uname -m
+Output  :x86_64
+( -m, --machine
+              print the machine hardware name)
+
+Command :cat /proc/cpuinfo\
+Output :
+
+cpu family	: 6
+model		: 94
+cpu cores	: 4
+cpu MHz		: 900.050
+cache size	: 6144 KB
+
+Command :ps
+Output: 
+  PID TTY          TIME CMD
+ 4017 pts/0    00:00:00 bash
+ 4510 pts/0    00:00:00 ps
+(2 users, and the processes)
+(process bash has the smallest process id)
+(bash is for command processor,ps is for the command)
+
+Command :ps -efl
+Output:
+(We got processes and childs)
+4 R student   4598  4017  0  80   0 - 11118 -      14:31 pts/0    00:00:00 ps -efl
+
+Command :top
+Output: (all processes in cpu)
+2.0 us, 2.4 sy
+
+browser opened again
+36.2 us 5.3 sy
+
+5 Top processes(instantaneous)
+
+2469 student   20   0 3903448 236300 117920 S   4.6  6.1   2:23.18 gnome-shell
+(shell command processor which terminal uses)                                                               
+ 2337 student   20   0  620124  92080  69144 S   4.3  2.4   1:46.66 Xorg                                                                      
+(full featured X server designed for linux)
+ 3932 student   20   0  807392  42924  29792 S   2.6  1.1   0:16.19 gnome-terminal-
+(terminal of course)                                                                                                                    
+ 1149 postgres  20   0  327912   6612   4324 S   0.3  0.2   0:00.03 postgres                                                                  
+                                                        
+ 2504 student   20   0  362020   8352   6464 S   0.3  0.2   0:14.97 ibus-daem
+
+Command :vmstat
+Output :
+The amount of virtual memory in use is 0
+
+The changes are as follows:
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0      0 294660 521488 1753400    0    0    85    37  108  366  4  2 94  1  0
+ 0  0      0 294412 521488 1754440    0    0     0     0  305 1165  2  1 97  0  0
+ 0  0      0 272236 521488 1745160    0    0     0     0  789 3590  9  3 88  0  0
+ 1  0      0 114224 517252 1743996    0    0   287   174 2657 9479 22  7 68  2  0
+ 3  0      0 107420 495616 1728708    0    0  3754   559 3507 6861 20  6 70  4  0
+the amount of free memory is 107420.
+
+Command :ifconfing
+Output :
+
+enp4s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.100.63.27  netmask 255.255.255.0  broadcast 10.100.63.255
+        inet6 fe80::efd0:2784:fd17:7954  prefixlen 64  scopeid 0x20<link>
+        ether 70:5a:0f:4c:b8:e0  txqueuelen 1000  (Ethernet)
+        RX packets 67408  bytes 86259871 (86.2 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 25726  bytes 1998410 (1.9 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 2520  bytes 380535 (380.5 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2520  bytes 380535 (380.5 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+a)enp4s0,lo
+b)enp4s0 ip:10.100.63.27 mac:70:5a:0f:4c:b8:e0
+c)lo ip:inet 127.0.0.1
+d)packets enps4s0:67408 lo:2520
+
+
+Command :netstat
+Output :
+The informantion about all the ports the system is connected to.
+eg: unix  3      [ ]         STREAM     CONNECTED     76051    /run/systemd/journal/stdout
+
+Command :netstat -rn
+Output :
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         10.100.63.2     0.0.0.0         UG        0 0          0 enp4s0
+10.100.63.0     0.0.0.0         255.255.255.0   U         0 0          0 enp4s0
+169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 enp4s0
+
+default gateway :10.100.63.2
+
+Command :df -h
+Output :
+(information about root)(/dev/sda7       208G   68G  130G  35% /)
+
+Command :mount
+Output :
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+the number of partitions are 7(from above)
+there are 32 type of file systems
+
+Command :lspci
+Output :
+
+Ether card: 04:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
+
+Video card: 00:02.0 VGA compatible controller: Intel Corporation HD Graphics 530 (rev 06)
+
+
+

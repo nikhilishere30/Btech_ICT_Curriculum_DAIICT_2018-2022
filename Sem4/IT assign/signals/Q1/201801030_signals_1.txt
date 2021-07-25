@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <signal.h>
+#include <unistd.h>
+#include<stdlib.h>
+
+FILE *filePointer;
+void alarmHandler();	// Forward declaration of alarm handler 
+
+int main(void)
+{
+    char s1[100];
+    alarm(10);
+    signal(SIGALRM,alarmHandler); 
+    gets(s1);
+    filePointer=fopen("filehandle.txt","a");
+    
+    if(filePointer==NULL)
+    {
+        printf("Failed to open the file\n");
+        exit(0);
+    }
+    
+    fputs(s1,filePointer);
+	fclose(filePointer);
+    exit(0);
+}
+
+void alarmHandler() 
+{
+    
+    filePointer=fopen("filehandle.txt","a");
+    
+    if(filePointer==NULL)
+    {
+        printf("Failed to open the file\n");
+        exit(0);
+    }
+    
+    fputs("It took too long to enter the string\n",filePointer);
+	fclose(filePointer);
+	exit(-1);
+}

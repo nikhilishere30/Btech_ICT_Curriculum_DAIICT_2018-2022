@@ -1,0 +1,16 @@
+[
+	{
+		"IndexName": "user_index",
+		"KeySchema": [
+			{"AttributeName":"user_id","KeyType":"HASH"},
+			{"AttributeName":"qid","KeyType":"RANGE"}
+		],
+		"Projection": {
+			"ProjectionType":"KEYS_ONLY"
+		},
+		"ProvisionedThroughput": {
+			"ReadCapacityUnits": 10,
+			"WriteCapacityUnits": 5
+		}
+	}
+]

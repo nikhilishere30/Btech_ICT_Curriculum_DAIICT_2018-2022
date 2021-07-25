@@ -1,0 +1,82 @@
+NAME:NIKHIL MEHTA
+ID:201801030
+LAB1
+Date:16/01/20
+
+1.(a) Command:uname-print system information
+      Output:       Linux
+      Command:uname -sr
+      Output:       Linux 5.0.0-37-generic
+		    -s stands for kernel name and -r stands for kernel release.	
+  (b) Command:uname -m
+      Output:       x86_64(i.e. 64 bits)
+
+2.(a) -cat: Concatenate files and print on the standard output.
+      Command: cat /proc/cpuinfo
+      CPU family:6
+      CPU model:94
+      			
+  (b) Number of cores:4
+  (c) cache size:6144 KB
+      processor	: 0, Speed=1443.541MHz
+      processor	: 1, Speed=1413.477MHz
+      processor	: 2, Speed=1358.479MHz
+      processor	: 3, Speed=1415.172MHz
+
+3.    ps- report a snapshot of the current process.
+      (a)Command: ps     PID(Process ID)
+         Output:PID TTY          TIME CMD
+ 	       4667 pts/0    00:00:00 bash
+               5447 pts/0    00:00:00 ps
+       (2 users)
+      (b) Process bash has the smallest process ID.
+      (c)4 R student   5606  4667  0  80   0 - 11118-14:51 pts
+        /0 00:00:00 ps -efl
+         Two processes i.e bash and ps are currently running. 
+	One runs  when we type in commands and the other runs when the OS compiles the program.
+
+      (d) Child of bash process with PID 5759 and PPID 4667.
+
+4.    top command- displays the resource utilization statistics of process. 	      	
+      (a) User Mode-2.1%
+          System mode-0.3%
+      (b) After closing and opening the browser the CPU utilization in both the user and the system mode increased because the CPU had to work immediately to open up the browser.
+      (c) 3198 student   20   0  588928  99184  76728 S  15.6  2.5   2:16.26 Xorg
+		Xorg is a full featured X server that was originally designed for UNIX and UNIX-like operating systems.     
+          3330 student   20   0 3909648 380196 114152 S  15.0  9.8   3:11.08 gnome-s+ 
+		GNOME is a free and open-source desktop environment for Unix-like operating systems. 
+          4739 student   20   0 1358968  82288  42484 S   8.3  2.1   0:36.01 evince 
+		Evince is a document viewer for PDF, PostScript, XPS and DVI formats. It was designed for the GNOME desktop environment.  
+          4592 student   20   0  806420  41788  29204 S   1.3  1.1   0:16.26 gnome-t+ 
+          4974 student   20   0  841924  59912  32736 S   1.3  1.5   0:30.64 gedit
+		gedit is a powerful general purpose text editor in Linux. It is the default text editor of the GNOME desktop environment.
+
+5.    (a) Currently 0 virtual memory is used.
+      (b) procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 564716 436540 1390908    0    0    74    35  121  409  3  1 96  0  0
+ 6  0      0 336400 436540 1468716    0    0     0     0 2752 7269 19  5 76  0  0
+ 0  0      0 119880 436548 1492652    0    0    14    33 2702 8457 22  6 72  0  0
+ 0  0      0 185636 436548 1481576    0    0     0    56 1429 3167  5  2 94  0  0
+ 0  0      0 197224 436556 1480860    0    0     0    18  581 1903  2  1 97  0  0
+
+	As we open up multiple tabs the free memory is getting changed.
+
+      (c)Free memory is 197224.
+
+
+7.	mount command-mount a filesystem.
+	(a) root file system- total size:206gb
+			      Used:69gb
+			      available:129gb
+	(b)sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+	   Root filesystem is a sysfs type file which controls all the other programs and is basically the root of all other  programs.
+	(c)/dev/sda5        9545920   193296   8848000   3% /boot
+	   /dev/sda7      217547896 71947764 134479596  35% /
+	   2 partitions in the hard disk.
+
+8. 	(a)Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
+	(b)VGA compatible controller: Intel Corporation HD Graphics 530 (rev 06)
+
+			
+ 

@@ -1,0 +1,119 @@
+Q4)
+	area lab44,code,readonly
+	entry
+	ldr r0,=56
+	ldr r1,=7
+	ldr r2,=0x4000
+	ldr r3,=0x5000
+	stmia r2,{r0,r1}
+	bl gcd
+gcd
+	stmia sp,{r0-r1,lr}
+	cmp r0,r1
+	beq answer
+	subgt r0,#1
+	sublt r1,#1
+	bx lr
+answer
+	mov r4,r0
+	b stop
+	
+stop
+	end
+
+	
+
+Q5)
+	area lab45,code,readonly
+	entry
+	ldr r0,=data
+	bl count
+	mov r3,r2,lsr #1
+	bl palindrome
+palindrome
+	cmp r3,#0
+	beq confirm
+	sub r3,#1
+	ldrb r1,[r0],#1
+	ldrb r4,[r0,r2]
+	sub r2,#1
+	cmp r1,r4
+	bne stop
+	b palindrome
+	
+confirm
+	ldr r5,=0x1
+	b stop
+count
+	ldrb r1,[r0],#1
+	cmp r1,0xd
+	addne r2,#1
+	bne count
+	bx lr
+stop
+
+data dcb "nikhil\r"
+	end
+
+
+Q6)
+
+	area lab46,code,readonly
+	entry
+	ldr r1,=20  ;x=11
+	ldr r2,=21  ;y=21
+	cmp r1,#9
+	bgt step1
+	add r1,#1
+	b stop
+	
+step1
+	ldr r1,=0
+	cmp r2,#9
+	bgt step21
+	add r2,#1
+	b stop
+	
+step21
+	ldr r2,=2
+	b stop
+stop
+	end
+
+
+
+Q7)
+
+     1-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X1008
+         VALUE OF R1 :0X1000 
+
+     2->ADDRESS FROM WHICH R0 IS LOADED INTO:0X1000
+         VALUE OF R1 :0XFF8
+    
+     3-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X1004
+         VALUE OF R1 :0X1004 
+
+     4-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X100C
+         VALUE OF R1 :0X1004
+
+     5-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X1004
+         VALUE OF R1 :0X100C	
+ 
+     6-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X1014
+         VALUE OF R1 :0X1014
+
+     7-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X1054
+         VALUE OF R1 :0X1014
+
+    8-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X1014
+         VALUE OF R1 :0X1018
+
+    9-> ADDRESS FROM WHICH R0 IS LOADED INTO:0X1038
+         VALUE OF R1 :0X1038	
+	
+	
+	
+
+
+
+	

@@ -1,0 +1,47 @@
+		area lab53,code,readonly
+		entry
+		b main
+		mov r0,#2
+	
+handler
+		ldr r4,=0x4000
+		str lr,[r4]
+		ldr r5,[lr,#-4]
+		bic r5,r5,0xff000000
+		cmps r5,#1
+		bleq gcd
+		cmps r5,#2
+		bleq lcm
+		ldr pc,[r4]
+gcd
+		cmp r1,r2
+		subgt r1,r1,r2
+		suble r2,r2,r1
+		sub r10,r1,r2
+		cmp r10,#0
+		bne gcd
+		ldr r6,=0x4ffc
+		str r1,[r6]
+		bx lr          
+		
+lcm
+		mul r8,r1,r2
+		bl gcd
+		ldr r7,[r6]
+		b loop
+	
+loop
+		subs r8,r7
+		add r9,#1
+		bne loop
+		ldr r6,=0x4fff
+		str r9,[r6]
+		ldr pc,[r4]
+		
+		
+main
+		mov r1,#2
+		mov r2,#4
+		swi 02
+exit	b exit
+		end

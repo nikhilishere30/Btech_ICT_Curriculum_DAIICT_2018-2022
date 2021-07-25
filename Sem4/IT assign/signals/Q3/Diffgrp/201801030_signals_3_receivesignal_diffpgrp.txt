@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<signal.h>
+#include<unistd.h>
+void signal_handler()
+{
+	printf("Process ID %d received SIGINT signal.\n",getpid());
+}
+
+int main()
+{
+	
+	signal(SIGINT,signal_handler);
+	
+	if(fork()==0)
+	{
+		setpgid(0,getpid());
+		
+		printf("Process ID of child: %d\n",getpid());
+		
+		printf("Process Group ID of child: %d\n",getpgid(0));		
+	}
+	else
+	{
+		printf("Process ID of parent: %d\n",getpid());
+		
+		printf("Process Group ID of parent: %d\n",getpgid(0));		
+	}
+	
+	pause();
+}

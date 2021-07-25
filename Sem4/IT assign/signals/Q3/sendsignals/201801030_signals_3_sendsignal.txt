@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<signal.h>
+#include<unistd.h>
+
+int main()
+{
+	int pid,temp;
+
+	printf("Enter the pid to send signal: ");
+
+	scanf("%d",&pid);
+	printf("\nEnter 1 for sending signal to the process\n2 for sending signal to entire process group\n");
+	scanf("%d",&temp);
+
+	switch(temp)
+	{
+	case 1:
+		kill(pid,SIGINT);
+		break;
+	case 2:
+		killpg(pid,SIGINT);
+		break;
+	}	
+
+}

@@ -1,0 +1,8 @@
+Parent asking question to Child: In which university do you study?
+Child answering to Parent: DAIICT
+Parent asking question to Child: Which course are you studying?
+Child answering to Parent: Systems Software
+Parent asking question to Child: What is your area of interest?
+Child answering to Parent: Kernel Programming
+Parent asking question to Child: Quit
+Child answering to Parent: Quit

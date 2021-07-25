@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+#define	READ	0      /* The index of the "read" end of the pipe */ 
+#define	WRITE	1      /* The index of the "write" end of the pipe */ 
+
+char* questions[] = {"Quit", "In which university do you study?", "Which course are you studying?", "What is your area of interest?"};
+char* answers[] = {"Quit", "DAIICT", "Systems Software", "Kernel Programming"}; 
+
+int main(void)
+{
+    int fd1[2],fd2[2],bytesRead;    //fd1 is of parent to child, fd2 is of child to parent
+    char message1[150],message2[150];
+    pipe(fd1); pipe(fd2);
+    
+    int input=-1,stat;
+    FILE *filePointer; 
+
+	filePointer=fopen("filehandling.txt","a"); // Opening the existing file
+
+	if(filePointer==NULL) 
+    {
+        printf( "File failed to open");
+        exit(0);
+    }
+    
+    if(fork()==0) //Child
+    {
+        close(fd1[WRITE]);
+        close(fd2[READ]);
+        
+        while(input!=0)
+        {
+            bytesRead=read(fd1[READ],message1,150);
+            int i;
+            
+            for(i=0;i<=3;i++)
+            {
+                if(strcmp(questions[i],message1)==0)
+                break;
+            }
+            write(fd2[WRITE],answers[i],strlen(answers[i])+1);
+            
+            input=i;
+        }
+        
+        close(fd1[READ]);
+        close(fd2[WRITE]);
+    }
+    
+    else //Parent
+    {
+        close(fd1[READ]);
+        close(fd2[WRITE]);
+        
+        while(input!=0)
+        {
+            int number;
+            printf("Enter your choice(1,2,3), and 0 to exit: ");
+            scanf("%d",&number);
+            
+            if(number>=0&&number<=3)
+            {
+                write(fd1[WRITE],questions[number],strlen(questions[number])+1);
+                fputs("Question: ",filePointer);
+                
+                fputs(questions[number],filePointer); 
+                fputs("\n",filePointer);
+                
+                bytesRead = read(fd2[READ],message2,150); //Receive 
+
+				fputs(message2,filePointer); 
+                fputs("\n",filePointer);
+                
+                printf("Read %d bytes: %s\n",bytesRead,message2);
+                
+                if(number==0)break;
+            }
+            
+            else
+            printf("Not available\n");
+        }
+        wait(&stat);
+        
+        close(fd1[WRITE]);
+        close(fd2[READ]);
+        
+        
+    }
+    fclose(filePointer);
+	
+}
